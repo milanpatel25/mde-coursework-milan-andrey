@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gherkin" nsURI="http://www.coursework.mde/gherkin/Gherkin" nsPrefix="gherkin">
+  <eClassifiers xsi:type="ecore:EClass" name="Gherkin_Language">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//Feature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Background">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="background_Steps" upperBound="-1"
+        eType="#//Steps" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scenario"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Normal_Scenario" eSuperTypes="#//Scenario"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scenario_Outline" eSuperTypes="#//Scenario"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Examples">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rows" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Example"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Chain_Steps">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" upperBound="-1"
+        eType="#//Steps" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Steps">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="given_step" eType="#//Given_Statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when_step" eType="#//When_Statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="but_step" eType="#//But_Statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="then_step" eType="#//Then_Statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="and_step" eType="#//And_Statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="star_step" eType="#//Star_Statement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Given_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="desc" eType="#//Description"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="When_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="desc" eType="#//Description"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Then_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="desc" eType="#//Description"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="But_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="desc" eType="#//Description"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="And_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="desc" eType="#//Description"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Star_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="desc" eType="#//Description"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Description" eSuperTypes="#//Feature #//Normal_Scenario #//Scenario_Outline #//Rule #//Example">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature_background" eType="#//Background"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scenarios" upperBound="-1"
+        eType="#//Scenario" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scenario_steps" eType="#//Chain_Steps"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
+        eType="#//Steps" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="example" eType="#//Examples"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="background" eType="#//Background"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="examples" upperBound="-1"
+        eType="#//Example" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="example_steps" eType="#//Chain_Steps"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

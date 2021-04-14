@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: mde.coursework.gherkin
+Bundle-ManifestVersion: 2
+Bundle-Name: mde.coursework.gherkin
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: mde.coursework.gherkin; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: mde.coursework.gherkin.parser.antlr.internal,
+ mde.coursework.gherkin.generator,
+ mde.coursework.gherkin.gherkin,
+ mde.coursework.gherkin.gherkin.impl,
+ mde.coursework.gherkin.validation,
+ mde.coursework.gherkin.serializer,
+ mde.coursework.gherkin.parser.antlr.lexer,
+ mde.coursework.gherkin.services,
+ mde.coursework.gherkin.parser.antlr,
+ mde.coursework.gherkin,
+ mde.coursework.gherkin.scoping,
+ mde.coursework.gherkin.gherkin.util
+Import-Package: org.apache.log4j

@@ -1,0 +1,118 @@
+grammar mde.coursework.gherkin.Gherkin with org.eclipse.xtext.common.Terminals
+
+generate gherkin "http://www.coursework.mde/gherkin/Gherkin"
+
+Gherkin_Language:
+    features += Feature* | rules += Rule*
+
+;
+
+Feature:
+    "Feature:" Description
+    (BEGIN
+    	(feature_background = Background)?
+    	scenarios += Scenario+
+    END)?
+
+;
+
+Background:
+    title = "Background:"
+    (BEGIN
+    	(background_Steps += Steps)*
+    END)
+;
+
+Scenario:
+    (Normal_Scenario)| (Scenario_Outline)
+;
+
+Normal_Scenario:
+    "Scenario:" Description
+    scenario_steps = Chain_Steps
+;
+
+Scenario_Outline:
+    "Scenario Outline:" Description
+
+    (BEGIN
+    	steps += Steps*
+    	example = Examples    	
+	END)
+
+;
+
+Examples:
+    {Examples}
+    "Examples:"
+    (BEGIN
+    	rows += Examples_row+
+	END)
+;
+
+Examples_row:	
+    ("|" ID)+ "|"	
+;
+
+Rule:
+    "Rule:" Description
+    (BEGIN
+    	(background = Background)?
+   		examples+=Example+
+    END)?
+;
+
+Example:
+    "Example:" Description
+    example_steps = Chain_Steps
+;
+
+Chain_Steps:
+    {Chain_Steps} 
+    (BEGIN
+    	chain += Steps*
+    END)
+;
+
+Steps:
+    given_step = Given_Statement| when_step = When_Statement| but_step = But_Statement| then_step = Then_Statement|and_step = And_Statement| star_step = Star_Statement
+;
+
+Given_Statement:
+    "Given" desc = Description
+;
+
+When_Statement:
+    "When" desc = Description
+;
+
+Then_Statement:
+    "Then" desc = Description
+;
+
+But_Statement:
+    "But" desc = Description
+;
+
+And_Statement:
+    "And" desc = Description
+;
+
+Star_Statement:
+    "*" desc = Description
+;
+
+Description:
+    {Description} desc += Sentence*
+;
+
+Sent:
+    {Sent} desc += Sentence*
+;
+
+Sentence:
+    ID|"\b"|STRING
+;
+
+terminal BEGIN: 'synthetic:BEGIN';
+terminal END: 'synthetic:END';
