@@ -1,0 +1,19 @@
+Feature: sentence description
+	Background:
+		Given sentence description
+		And sentence description
+	Scenario: sentence description
+		Given sentence description
+		When sentence description
+		Then sentence description
+		But sentence description
+		* sentence description
+	Scenario Outline:
+		Given sentence "<examples>" description
+		When sentence description
+		Then sentence description
+		
+		Examples:
+			| examples |
+			| this |
+			| that |
